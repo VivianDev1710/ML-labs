@@ -1,0 +1,31 @@
+movieID,name,year,Director,budget,marketing,boxOffice,studio,genre,imdb
+1,Endgame,2018,Russo Brothers,350,150,3000,Marvel,team,7.6
+2,Infinity War,2017,Russo Brothers,250,170,2400,Marvel,team,8.1
+3,Iron Man,2008,Jon Favreau,150,100,760,Marvel,Sci-fi,8.1
+4,Iron Man 2,2010,Jon Favreau,151,101,861,Marvel,Sci-fi,7.1
+5,Iron Man 3,2012,Jon Favreau,200,120,862,Marvel,Sci-fi,6.8
+6,Captain America,2011,Joe Johnston,120,50,640,Marvel,Action,7.1
+7,Winter Soldier,2014,Russo Brothers,170,120,940,Marvel,Political Thriller,8.7
+8,Civil War,2016,Russo Brothers,270,200,1840,Marvel,team,8.7
+9,Thor,2010,Kenneth Branagh,100,80,760,Marvel,Mythological,7.6
+10,Dark World,2013,Kenneth Branagh,201,120,1200,Marvel,Mythological,6.4
+11,Ragnarok,2018,Taika Wititi,180,121,976,Marvel,Mythological,7.9
+12,Love and thunder,2022,Taika Wititi,181,122,1077,Marvel,Mythological,6.2
+13,Homecoming,2017,Jon Watts,220,100,970,Sony,Teen comedy,7.6
+14,Far from home,2019,Jon Watts,240,120,1120,Sony,Teen comedy,7.4
+15,No way home,2021,Jon Watts,260,140,2170,Sony,Teen comedy,7.9
+16,Venom,2018,,170,-23,,Sony,Alien,6.9
+17,X-men,2000,Simon Kinberg,94,,560,Fox,team,7.1
+18,Deadpool,2016,Tim Miller,120,70,720,Fox,Adult comedy,7.9
+19,Deadpool 2,2019,Tim Miller,200,71,1024,Fox,Adult comedy,7.2
+20,Woolverine,2004,James Mangold,140,,640,Fox,Action origin,11
+21,GOTG,2014,James Gunn,200,40,870,Marvel,Space Comedy,7.8
+22,GOTG Vol. 2,2017,James Gunn,250,60,990,Marvel,Space Comedy,7.2
+23,GOTG Vol. 3,2023,James Gunn,270,,,Marvel,Space Comedy,
+24,Antman,2015,Peyton Reed,180,50,870,Marvel,Action Comedy,7.1
+25,Antman and Wasp,2019,Peyton Reed,200,60,945,Marvel,Action Comedy,7
+26,A&W: QuantamMania,2023,Peyton Reed,250,,,Marvel,Action Comedy,
+27,Dr. Strange,2014,Scott Derickson,230,35,780,Marvel,Magic,7
+28,Dr. Strange: MOM,2022,Sam Raima,270,55,1200,Marvel,Magic,6.6
+29,Eternals,2022,Chloe Zhao,240,38,834,Marvel,History Action,7
+30,Shang Chi,2022,Destin Daniel Cretton,210,45,1005,Marvel,Fantasy,7.8

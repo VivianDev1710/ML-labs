@@ -1,0 +1,97 @@
+#Importing required libraries
+import matplotlib.pyplot as plt
+%matplotlib inline
+import pandas as pd
+import numpy as np
+from sklearn.datasets import load_iris
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.model_selection import train_test_split,KFold,cross_val_score
+from sklearn import metrics
+from sklearn import tree
+
+#Loading the iris data
+data = load_iris()
+print('Classes to predict: ', data.target_names)
+print('Features: ', data.feature_names)
+data.feature_names
+
+import pandas as pd
+iris = pd.DataFrame(data.data)
+print(iris.head())
+
+iris.columns = data.feature_names
+iris.head()
+iris['class'] = data.target
+iris
+#Extracting data attributes
+X = iris.iloc[:,0:4]
+### Extracting target/ class labels
+y = iris.iloc[:,4] 
+
+print('Number of examples in the data:', X.shape)
+
+#First four rows in the variable 'X'
+print(X[:4])
+y.head(4)
+#Using the train_test_split to create train and test sets.
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state = 20, train_size = 0.7)
+
+#Importing the Decision tree classifier from the sklearn library.
+#from sklearn.tree import DecisionTreeClassifier
+clf = DecisionTreeClassifier()
+
+#Training the decision tree classifier. 
+clf.fit(X_train, y_train)
+
+#Predicting labels on the test set.
+y_pred_test =  clf.predict(X_test)
+
+y_pred_train=clf.predict(X_train)
+#pre-pruning
+max_depth = []
+acc = []
+for i in range(1,30):
+ dt_classifier = DecisionTreeClassifier(max_depth=i, random_state = 20)
+ dt_classifier.fit(X_train, y_train)
+ pred = dt_classifier.predict(X_test)
+ acc.append(accuracy_score(y_test, pred))
+ max_depth.append(i)
+print(acc)
+print(max(acc))
+
+depth = acc.index(max(acc)) + 1
+depth
+
+dt_classifier = DecisionTreeClassifier(max_depth=depth, random_state = 20)
+dt_classifier.fit(X_train, y_train)
+pred = dt_classifier.predict(X_test)
+#pred
+accuracy_score(y_test, pred)
+
+
+fig = plt.figure(figsize=(25,20))
+_ = tree.plot_tree(dt_classifier, 
+                   feature_names=X.columns,  
+                   class_names=["setosa", "versicolor" ,"virginica"],
+                   filled=True)
+
+from sklearn.model_selection import GridSearchCV
+from sklearn.metrics import accuracy_score
+
+#params = {'max_leaf_nodes': list(range(2, 100)), 'min_samples_split': [2, 3, 4]}
+params = {"criterion": ["gini", "entropy"],
+              "min_samples_split": [2, 5, 10, 15, 20],
+              "max_depth": [None, 2, 3, 5, 7, 10],
+              "min_samples_leaf": [1, 3, 5, 7, 10],
+              "max_leaf_nodes": [None, 3, 5, 7, 10, 15, 20],
+              }
+grid_search_cv = GridSearchCV(DecisionTreeClassifier(random_state=20), params,cv=10, scoring='accuracy')
+
+grid_search_cv.fit(X_train, y_train)
+
+grid_search_cv.best_estimator_
+
+# By default, GridSearchCV trains the best model found on the whole training set (you can change this by setting refit=False), 
+#so we don't need to do it again. We can simply evaluate the model's accuracy:
+y_pred = grid_search_cv.predict(X_test)
+accuracy_score(y_test, y_pred)
